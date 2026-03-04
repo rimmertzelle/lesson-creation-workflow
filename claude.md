@@ -10,10 +10,11 @@ Always follow these steps in order. Create a dedicated folder for each new lesso
 ```text
 Step 1 → Ask for topic
 Step 2 → Ask for sources
-Step 3 → Create lesson plan (markdown)
+Step 3 → Create lesson plan (markdown, persona-aware)
 Step 4 → Ask for exercise context
 Step 5 → Create exercises + answer key
-Step 6 → Create MARP slides
+Step 6 → Create quiz questions (persona-aware)
+Step 7 → Create MARP slides
 ```
 
 ---
@@ -50,7 +51,15 @@ Create a folder: `lessons/<topic-slug>/`
 
 Create the file: `lessons/<topic-slug>/lesson.md`
 
-Structure the lesson following the Bain-inspired principles from `educational_context.MD`:
+Structure the lesson following the Bain-inspired principles from `educational_context.MD`.
+
+**Persona-aware design:** Read `persona.md` before writing the lesson plan. For each major section, consider how the three student archetypes (Lars / HAVO, Fatima / MBO, Daan / non-traditional) will experience it. Specifically:
+
+- **Opening:** Choose a problem that feels relevant to Fatima's practical experience AND intriguing enough to engage Daan's curiosity. Add a brief note on how to make it land for Lars too (e.g., a concrete anchor or worked example).
+- **Prior Knowledge Check:** Anticipate that Lars may lack practical reference points, Fatima may have misconceptions from applied shortcuts, and Daan may have gaps in foundational theory.
+- **Core Concepts:** Provide at least one concrete example (for Lars and Fatima) and one conceptual extension or "why does this work?" angle (for Daan).
+- **Application:** Design the task so it has a low floor (accessible to Lars) and a high ceiling (stretching enough for Daan). Note optional depth layers in a teacher note.
+- **Reflection:** Include at least one question that invites students to connect the lesson to their own background — making space for Fatima's experience and Daan's self-directed learning history.
 
 ```markdown
 # Lesson: <Topic>
@@ -63,15 +72,19 @@ Structure the lesson following the Bain-inspired principles from `educational_co
 
 ## 1. Opening — Challenging Problem or Question
 <!-- Trigger curiosity. Start from an authentic problem. -->
+<!-- Persona note: ... -->
 
 ## 2. Prior Knowledge Check
 <!-- Surface misconceptions before instruction. -->
+<!-- Persona note: ... -->
 
 ## 3. Core Concepts
 <!-- Introduce theory as a thinking tool, not content to cover. -->
+<!-- Persona note: ... -->
 
 ## 4. Application
 <!-- Students apply theory to a new situation. -->
+<!-- Persona note: low floor / high ceiling task design -->
 
 ## 5. Reflection
 <!-- Metacognitive closing questions. -->
@@ -139,7 +152,57 @@ This is a teacher-facing document. For each exercise in `exercises.md`, provide:
 
 ---
 
-## Step 6 — Create MARP Slides
+## Step 6 — Create Quiz Questions
+
+Create the file: `lessons/<topic-slug>/quiz.md`
+
+Write exactly **4 quiz questions** students can use to self-assess whether they understood the lesson. The questions are low-stakes and formative — meant to help students identify gaps, not to grade them.
+
+**Persona-aware design:** The 4 questions should collectively serve all three archetypes from `persona.md`:
+
+- **Q1 — Recall (Lars-focused):** A straightforward question that confirms whether the student grasped the central concept. Clear, unambiguous, no tricks. Gives Lars a confidence anchor.
+- **Q2 — Application (Fatima-focused):** A short scenario or practical case where the student must apply the concept. Rewards Fatima's practical intuition and gives Lars a concrete reference point.
+- **Q3 — Conceptual / "Why?" (Daan-focused):** A question that probes understanding of the underlying mechanism or rationale — not just what, but why. Rewards Daan's depth and stretches Fatima and Lars.
+- **Q4 — Transfer / Open (all):** A broader question asking students to connect the concept to a different context, their own experience, or a related field. Has no single right answer. Rewards Daan's curiosity, Fatima's experience, and pushes Lars beyond the familiar.
+
+Each question must include:
+
+- The question text
+- The persona it primarily targets (Q1–Q3) or "all" (Q4)
+- The type of thinking it requires (e.g., recall, application, analysis, transfer)
+- A brief model answer or key elements of a strong answer (for student self-check)
+
+```markdown
+# Quiz — <Topic>
+
+*Use these questions to check your understanding. There are no grades — just honest self-reflection.*
+
+---
+
+## Q1 — <Short title>
+**Type:** Recall
+**Question:** ...
+**Self-check:** ...
+
+## Q2 — <Short title>
+**Type:** Application
+**Question:** ...
+**Self-check:** ...
+
+## Q3 — <Short title>
+**Type:** Conceptual
+**Question:** ...
+**Self-check:** ...
+
+## Q4 — <Short title>
+**Type:** Transfer
+**Question:** ...
+**Self-check:** ...
+```
+
+---
+
+## Step 7 — Create MARP Slides
 
 Create the file: `lessons/<topic-slug>/slides.md`
 
@@ -180,6 +243,7 @@ Confirm with the user when all files are ready:
 > - `lesson.md` — lesson plan
 > - `exercises.md` — in-class and follow-up exercises
 > - `answers.md` — model answers and grading notes (teacher-facing)
+> - `quiz.md` — 4 self-assessment quiz questions (student-facing)
 > - `slides.md` — MARP source
 > - `slides.pdf` — rendered slide deck
 >
