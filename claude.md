@@ -12,7 +12,7 @@ Step 1 → Ask for topic
 Step 2 → Ask for sources
 Step 3 → Create lesson plan (markdown)
 Step 4 → Ask for exercise context
-Step 5 → Create exercises
+Step 5 → Create exercises + answer key
 Step 6 → Create MARP slides
 ```
 
@@ -128,6 +128,15 @@ Each exercise should include:
 - The Bain principle it targets (e.g., "targets: deep learning / transfer")
 - An optional teacher note
 
+After writing `exercises.md`, create the file: `lessons/<topic-slug>/answers.md`
+
+This is a teacher-facing document. For each exercise in `exercises.md`, provide:
+
+- The exercise title/number (matching the order in `exercises.md`)
+- A model answer or worked-out solution
+- For open-ended questions: key elements a strong answer should include, not a single correct answer
+- An optional grading note (what distinguishes a weak, adequate, and strong response)
+
 ---
 
 ## Step 6 — Create MARP Slides
@@ -170,6 +179,7 @@ Confirm with the user when all files are ready:
 >
 > - `lesson.md` — lesson plan
 > - `exercises.md` — in-class and follow-up exercises
+> - `answers.md` — model answers and grading notes (teacher-facing)
 > - `slides.md` — MARP source
 > - `slides.pdf` — rendered slide deck
 >

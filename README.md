@@ -1,6 +1,6 @@
 # Lesson Creation Workflow
 
-A Claude-powered workflow for creating structured, educationally grounded lesson materials — including a lesson plan, exercises, and MARP slides — from a single conversation.
+A Claude-powered workflow for creating structured, educationally grounded lesson materials — including a lesson plan, exercises, an answer key, and MARP slides — from a single conversation.
 
 ## What This Repo Is
 
@@ -17,6 +17,7 @@ For every lesson, Claude creates a folder `lessons/<topic-slug>/` containing:
 | ------------- | ----------------------------------------- |
 | `lesson.md` | Full lesson plan with learning objectives |
 | `exercises.md` | In-class and follow-up exercises |
+| `answers.md` | Model answers and grading notes (teacher-facing) |
 | `slides.md` | MARP slide deck source |
 | `slides.pdf` | Rendered PDF slide deck |
 
@@ -28,7 +29,7 @@ Open this repository in [Claude Code](https://claude.ai/code) and start a new co
 2. **Sources** — Provide URLs, local files, or references to use as input
 3. **Lesson plan** — Claude creates `lesson.md` and asks for your approval
 4. **Exercise context** — Specify format, collaboration style, and constraints
-5. **Exercises** — Claude creates `exercises.md` with in-class and follow-up exercises
+5. **Exercises** — Claude creates `exercises.md` with in-class and follow-up exercises, plus `answers.md` with model answers and grading notes
 6. **Slides** — Claude creates `slides.md` and renders it to `slides.pdf` via MARP CLI
 
 ## Requirements
