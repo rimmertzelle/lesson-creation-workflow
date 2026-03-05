@@ -1,6 +1,6 @@
 # Lesson Creation Workflow
 
-A Claude-powered workflow for creating structured, educationally grounded lesson materials — including a lesson plan, exercises, an answer key, a self-assessment quiz, and MARP slides — from a single conversation.
+A Claude-powered workflow for creating structured, educationally grounded lesson materials — including a lesson plan, exercises, an answer key, a self-assessment quiz, MARP slides, and a student note-taking template — from a single conversation.
 
 ## What This Repo Is
 
@@ -14,14 +14,15 @@ This repository contains the configuration and context files that instruct Claud
 
 For every lesson, Claude creates a folder `lessons/<topic-slug>/` containing:
 
-| File           | Description                                           |
-| -------------- | ----------------------------------------------------- |
-| `lesson.md`    | Full lesson plan with learning objectives             |
-| `exercises.md` | In-class and follow-up exercises                      |
-| `answers.md`   | Model answers and grading notes (teacher-facing)      |
-| `quiz.md`      | 4 self-assessment questions for students (formative)  |
-| `slides.md`    | MARP slide deck source                                |
-| `slides.pdf`   | Rendered PDF slide deck                               |
+| File                 | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `lesson.md`          | Full lesson plan with learning objectives             |
+| `exercises.md`       | In-class and follow-up exercises                      |
+| `answers.md`         | Model answers and grading notes (teacher-facing)      |
+| `quiz.md`            | 4 self-assessment questions for students (formative)  |
+| `slides.md`          | MARP slide deck source                                |
+| `slides.pdf`         | Rendered PDF slide deck                               |
+| `notes-template.md`  | Guided Learning Log for students (Before/During/After)|
 
 ## How to Use
 
@@ -34,6 +35,7 @@ Open this repository in [Claude Code](https://claude.ai/code) and start a new co
 5. **Exercises** — Claude creates `exercises.md` with in-class and follow-up exercises, plus `answers.md` with model answers and grading notes
 6. **Quiz** — Claude creates `quiz.md` with 4 persona-aware self-assessment questions for students
 7. **Slides** — Claude creates `slides.md` and renders it to `slides.pdf` via MARP CLI
+8. **Notes template** — Claude creates `notes-template.md`, a Guided Learning Log students use before, during, and after the lesson to deepen processing
 
 ## Requirements
 

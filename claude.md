@@ -15,6 +15,7 @@ Step 4 → Ask for exercise context
 Step 5 → Create exercises + answer key
 Step 6 → Create quiz questions (persona-aware)
 Step 7 → Create MARP slides
+Step 8 → Create student notes template (Guided Learning Log)
 ```
 
 ---
@@ -236,6 +237,91 @@ After creating the slides, run the MARP CLI to generate a PDF:
 marp lessons/<topic-slug>/slides.md --pdf --output lessons/<topic-slug>/slides.pdf
 ```
 
+After creating the slides, proceed to Step 8 without confirmation.
+
+---
+
+## Step 8 — Create Student Notes Template (Guided Learning Log)
+
+Create the file: `lessons/<topic-slug>/notes-template.md`
+
+This is a student-facing document — a structured template they fill in before, during, and after the lesson. Its purpose is to deepen processing and make learning visible to the student themselves.
+
+The template has three phases:
+
+### Before the Lesson
+
+A single prompt that activates prior knowledge and sets a personal learning intention:
+
+- "What do I already think I know about this topic?"
+- "What am I curious or uncertain about going in?"
+
+### During the Lesson
+
+Structured space for active note-taking with four prompts:
+
+- **Key ideas** — The most important concepts or insights (in their own words, not copied verbatim)
+- **Questions that arose** — Things they didn't understand or want to explore further
+- **Connections** — Links to things they already know, from class, work, or daily life
+- **Something that surprised me** — An unexpected idea, contradiction, or moment of confusion
+
+### After the Lesson
+
+A synthesis section to consolidate and reflect:
+
+- "Summarise the core idea of this lesson in 2–3 sentences, as if explaining it to someone who wasn't there."
+- "What question do you still have — or what would you want to learn next?"
+- "How does this connect to your own experience, field, or interests?"
+
+**Persona-aware framing:** The template prompts should feel low-threshold and open — not a test. Use inviting, informal language. The "Connections" and "After" prompts especially give space for Fatima's practical experience and Daan's self-directed depth, while the "Key ideas" structure gives Lars the scaffolding to anchor their notes.
+
+Use this template structure:
+
+```markdown
+# Learning Log — <Topic>
+
+*This is your personal thinking space — not a test. Use it to make the lesson yours.*
+
+---
+
+## Before the Lesson
+
+**What do I already think I know about this topic?**
+
+
+**What am I curious or uncertain about going in?**
+
+
+---
+
+## During the Lesson
+
+**Key ideas** *(in your own words — don't just copy)*
+
+
+**Questions that came up**
+
+
+**Connections** *(to things you already know, from class, work, or life)*
+
+
+**Something that surprised me**
+
+
+---
+
+## After the Lesson
+
+**Summarise the core idea in 2–3 sentences, as if explaining it to someone who wasn't there.**
+
+
+**What question do you still have, or what would you want to explore next?**
+
+
+**How does this connect to your own experience, field, or interests?**
+
+```
+
 Confirm with the user when all files are ready:
 
 > "All lesson materials are saved in `lessons/<topic-slug>/`:
@@ -246,6 +332,7 @@ Confirm with the user when all files are ready:
 > - `quiz.md` — 4 self-assessment quiz questions (student-facing)
 > - `slides.md` — MARP source
 > - `slides.pdf` — rendered slide deck
+> - `notes-template.md` — Guided Learning Log for students
 >
 > Let me know if you'd like to adjust anything."
 
