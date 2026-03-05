@@ -77,6 +77,65 @@ These three archetypes represent the range of students typically found in the HB
 
 ---
 
+## Neurodiversity & Universal Design for Learning (UDL)
+
+In HBO-ICT, a meaningful share of students is neurodivergent — including students with ADHD, autism, dyslexia, concentration difficulties, or chronic illness. Neurodivergent students are present across all three archetypes above; they are not a separate group but a dimension within every classroom.
+
+The guidance below is based on the ECIO framework *Handreiking Neuro-inclusief Onderwijs* (2024) and the Universal Design for Learning (UDL) principles it applies.
+
+### The UDL Mindset
+
+UDL shifts the question from *"how do we accommodate this student?"* to *"how do we design so barriers don't arise in the first place?"* What helps neurodivergent students — predictability, multiple formats, explicit structure, choice — improves learning for everyone.
+
+UDL works through three lenses:
+
+**1. Multiple Means of Engagement (the "Why")**
+Students engage when they understand why something matters, feel psychologically safe, and have some control over their learning path.
+
+- Make learning objectives and relevance explicit at the start
+- Offer choice where possible (project theme, output format, group vs. individual)
+- Establish predictable lesson rhythms and clear assessment criteria
+- Build in self-reflection moments so students can locate themselves
+
+**2. Multiple Means of Representation (the "What")**
+Students process information differently. Presenting concepts in only one modality creates unnecessary barriers.
+
+- Pair verbal explanation with visuals, diagrams, or worked code examples
+- Provide written summaries alongside spoken instruction
+- Use recaps and prior-knowledge activators at the start of each lesson
+- Avoid walls of text — chunk content into small, labelled sections
+
+**3. Multiple Means of Action & Expression (the "How")**
+Students demonstrate competence differently. Restricting output to one format (e.g., only written exams) systematically disadvantages some students.
+
+- Allow varied submission formats: report, screencast, demo, poster, oral explanation
+- Provide templates, rubrics, and intermediate feedback moments
+- Support both collaborative and individual contribution in group tasks
+- Give structured choices rather than fully open briefs (reduces cognitive load without removing autonomy)
+
+### Neurodiversity Signals per Persona
+
+Each archetype has a different neurodiversity risk profile:
+
+| Signal to watch for       | Lars (HAVO)                        | Fatima (MBO)                       | Daan (Non-traditional)             |
+| ------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Cognitive overload        | High — too much new at once        | Lower, but abstract theory can hit | Spikes on admin/planning tasks     |
+| Need for structure        | High — needs visible lesson flow   | Moderate — purpose-driven only     | Low if structure feels arbitrary   |
+| Sensory/attention needs   | Often undetected (compliant)       | May mask from work experience      | More likely to self-disclose       |
+| Output format flexibility | Defaults to what is "expected"     | Prefers practical over essays      | Strong need for format choice      |
+
+### Practical Design Checklist (apply to every lesson)
+
+- [ ] Learning objectives stated explicitly at the start
+- [ ] Lesson structure visible (e.g., agenda on first slide)
+- [ ] Core concept presented in at least two formats (visual + verbal or text + example)
+- [ ] At least one moment of low-stakes self-assessment (quiz, exit ticket, reflection question)
+- [ ] Assignment instructions available in writing, not only spoken
+- [ ] At least one element of student choice (topic, format, depth, or pace)
+- [ ] Assessment criteria made explicit before the task, not only after
+
+---
+
 ## Summary Table
 
 | Dimension            | Lars (HAVO)             | Fatima (MBO)               | Daan (Non-traditional)    |
@@ -86,3 +145,5 @@ These three archetypes represent the range of students typically found in the HB
 | Theory-practice gap  | Theory without practice | Practice without theory    | Varies by domain          |
 | Cognitive load risk  | High                    | Moderate                   | Low (engagement risk)     |
 | Needs most           | Structure + relevance   | Autonomy + depth           | Challenge + open problems |
+
+Sources: [Neuro diversity](https://publicaties.ecio.nl/handreiking-neuro-inclusief-onderwijs/udl)
