@@ -2,6 +2,8 @@
 
 A Claude-powered workflow for creating structured, educationally grounded lesson materials — including a lesson plan, exercises, an answer key, a self-assessment quiz, MARP slides, and a student note-taking template — from a single conversation.
 
+![Workflow overview](workflow.png)
+
 ## What This Repo Is
 
 This repository contains the configuration and context files that instruct Claude on how to generate complete lesson packages. It is built around three principles:
