@@ -40,7 +40,7 @@ Ask the user:
 > - File paths to documents in this project folder
 > - General references (books, papers) I should be aware of
 >
-> Leave blank to rely only on the educational_context.MD and my general knowledge."
+> Leave blank to rely only on the `.claude/context/educational_context.md` and my general knowledge."
 
 Fetch or read all provided sources before proceeding.
 
@@ -52,9 +52,9 @@ Create a folder: `lessons/<topic-slug>/`
 
 Create the file: `lessons/<topic-slug>/lesson.md`
 
-Structure the lesson following the Bain-inspired principles from `educational_context.MD`.
+Structure the lesson following the Bain-inspired principles from `.claude/context/educational_context.md`.
 
-**Persona-aware design:** Read `persona.md` before writing the lesson plan. For each major section, consider how the three student archetypes (Lars / HAVO, Fatima / MBO, Daan / non-traditional) will experience it. Specifically:
+**Persona-aware design:** Read `.claude/context/persona.md` before writing the lesson plan. For each major section, consider how the three student archetypes (Lars / HAVO, Fatima / MBO, Daan / non-traditional) will experience it. Specifically:
 
 - **Opening:** Choose a problem that feels relevant to Fatima's practical experience AND intriguing enough to engage Daan's curiosity. Add a brief note on how to make it land for Lars too (e.g., a concrete anchor or worked example).
 - **Prior Knowledge Check:** Anticipate that Lars may lack practical reference points, Fatima may have misconceptions from applied shortcuts, and Daan may have gaps in foundational theory.
@@ -159,7 +159,7 @@ Create the file: `lessons/<topic-slug>/quiz.md`
 
 Write exactly **4 quiz questions** students can use to self-assess whether they understood the lesson. The questions are low-stakes and formative — meant to help students identify gaps, not to grade them.
 
-**Persona-aware design:** The 4 questions should collectively serve all three archetypes from `persona.md`:
+**Persona-aware design:** The 4 questions should collectively serve all three archetypes from `.claude/context/persona.md`:
 
 - **Q1 — Recall (Lars-focused):** A straightforward question that confirms whether the student grasped the central concept. Clear, unambiguous, no tricks. Gives Lars a confidence anchor.
 - **Q2 — Application (Fatima-focused):** A short scenario or practical case where the student must apply the concept. Rewards Fatima's practical intuition and gives Lars a concrete reference point.
@@ -340,7 +340,7 @@ Confirm with the user when all files are ready:
 
 ## Educational Principles (Reference)
 
-All lesson content should reflect the principles in `educational_context.MD`:
+All lesson content should reflect the principles in `.claude/context/educational_context.md`:
 
 | Principle                 | Application                                        |
 | ------------------------- | -------------------------------------------------- |
