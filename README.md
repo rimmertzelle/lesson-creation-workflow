@@ -8,8 +8,8 @@ A Claude-powered workflow for creating structured, educationally grounded lesson
 
 This repository contains the configuration and context files that instruct Claude on how to generate complete lesson packages. It is built around three principles:
 
-- **Educational quality**: All lessons are grounded in Ken Bain's research-backed teaching principles (from *What the Best College Teachers Do*), as described in `educational_context.MD`.
-- **Persona-aware design**: Lessons, exercises, and quiz questions are designed with three student archetypes in mind (HAVO, MBO, and non-traditional intake), as described in `persona.md`.
+- **Educational quality**: All lessons are grounded in Ken Bain's research-backed teaching principles (from *What the Best College Teachers Do*), as described in `.claude/context/educational_context.md`.
+- **Persona-aware design**: Lessons, exercises, and quiz questions are designed with three student archetypes in mind (HAVO, MBO, and non-traditional intake), as described in `.claude/context/persona.md`.
 - **Structured output**: Each lesson produces a consistent set of files organized in its own folder.
 
 ## Output per Lesson
@@ -28,7 +28,7 @@ For every lesson, Claude creates a folder `lessons/<topic-slug>/` containing:
 
 ## How to Use
 
-Open this repository in [Claude Code](https://claude.ai/code) and start a new conversation. Claude will automatically load the workflow from `claude.md` and guide you through the following steps:
+Open this repository in [Claude Code](https://claude.ai/code) and start a new conversation. Claude will automatically load the workflow from `CLAUDE.md` and guide you through the following steps. You can also invoke it directly with `/create-lesson`:
 
 1. **Topic** — Describe the lesson topic, target audience, and duration
 2. **Sources** — Provide URLs, local files, or references to use as input
@@ -44,10 +44,27 @@ Open this repository in [Claude Code](https://claude.ai/code) and start a new co
 - [Claude Code](https://claude.ai/code) CLI
 - [MARP CLI](https://github.com/marp-team/marp-cli) installed (`marp` available on PATH)
 
-## Key Files
+## Project Structure
 
-| File                     | Purpose                                            |
-| ------------------------ | -------------------------------------------------- |
-| `claude.md`              | Workflow instructions for Claude                   |
-| `educational_context.MD` | Bain-inspired teaching principles used as a guide  |
-| `persona.md`             | Three student archetypes for persona-aware design  |
+```text
+lesson-creation-workflow/
+├── CLAUDE.md                          # Workflow instructions for Claude
+├── README.md
+├── workflow.png
+├── lessons/                           # Generated lesson folders (one per topic)
+│   └── <topic-slug>/
+│       ├── lesson.md
+│       ├── exercises.md
+│       ├── answers.md
+│       ├── quiz.md
+│       ├── slides.md
+│       ├── slides.pdf
+│       └── notes-template.md
+└── .claude/
+    ├── context/
+    │   ├── educational_context.md     # Bain-inspired teaching principles
+    │   └── persona.md                 # Three student archetypes
+    └── skills/
+        └── create-lesson/
+            └── SKILL.md               # /create-lesson slash command
+```
