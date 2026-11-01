@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1400" width="2000" height="1400">
+  <!-- Source for workflow.png. Render: see README "Workflow diagram". -->
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap');
+      text { font-family: 'Barlow', 'Segoe UI', sans-serif; fill: #040e28; }
+      .h { font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif; font-weight: 700; }
+      .col { font-size: 52px; fill: #01386a; }
+      .grp { font-size: 34px; fill: #01386a; }
+      .note { font-size: 20px; fill: #646d82; }
+      .box { font-size: 24px; font-weight: 500; }
+      .sub { font-size: 18px; fill: #646d82; }
+      .badge { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; fill: #fff; letter-spacing: 0.06em; }
+    </style>
+    <clipPath id="frame"><rect x="30" y="60" width="1940" height="1300" rx="22"/></clipPath>
+    <marker id="a-sky" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto">
+      <path d="M2 1 L10 6 L2 11" fill="none" stroke="#32abe2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="a-grey" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto">
+      <path d="M2 1 L10 6 L2 11" fill="none" stroke="#646d82" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="a-orange" viewBox="0 0 12 12" refX="10" refY="6" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto">
+      <path d="M2 1 L10 6 L2 11" fill="none" stroke="#bf4b00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Frame -->
+  <rect width="2000" height="1400" fill="#ffffff"/>
+  <rect x="30" y="60" width="1940" height="1300" rx="22" fill="none" stroke="#e7eaf4" stroke-width="3"/>
+  <rect x="30" y="14" width="300" height="40" rx="10" fill="#f2f6fa" stroke="#e7eaf4" stroke-width="2"/>
+  <text x="180" y="42" text-anchor="middle" class="h" font-size="20" style="fill:#01386a">Les creëren workflow</text>
+
+  <!-- Column headings -->
+  <text x="470" y="150" text-anchor="middle" class="h col">Input</text>
+  <text x="910" y="150" text-anchor="middle" class="h col">Processing</text>
+  <text x="1640" y="150" text-anchor="middle" class="h col">Output</text>
+
+  <!-- ===== Input: vraag gestuurd ===== -->
+  <line x1="290" y1="235" x2="290" y2="665" stroke="#646d82" stroke-width="5"/>
+  <circle cx="290" cy="235" r="13" fill="#646d82"/>
+  <circle cx="290" cy="665" r="13" fill="#646d82"/>
+  <text x="60" y="440" class="h grp">Vraag</text>
+  <text x="60" y="482" class="h grp">gestuurd</text>
+  <text x="60" y="520" class="note">Claude vraagt —</text>
+  <text x="60" y="546" class="note">of leest brief.md</text>
+
+  <!-- input/ folder container -->
+  <rect x="325" y="205" width="310" height="490" rx="18" fill="#f2f6fa" stroke="#32abe2" stroke-width="2.5" stroke-dasharray="10 8"/>
+  <text x="345" y="240" class="h" font-size="19" style="fill:#005095">input/&lt;onderwerp&gt;/</text>
+  <text x="345" y="263" class="sub">brief.md + sources/ (optioneel)</text>
+  <rect x="551" y="190" width="70" height="28" rx="14" fill="#bf4b00"/>
+  <text x="586" y="210" text-anchor="middle" class="badge">NIEUW</text>
+
+  <g>
+    <rect x="345" y="285" width="270" height="80" rx="12" fill="#e3f3fb" stroke="#32abe2" stroke-width="3"/>
+    <text x="480" y="333" text-anchor="middle" class="box">Onderwerp</text>
+    <rect x="345" y="385" width="270" height="80" rx="12" fill="#e3f3fb" stroke="#32abe2" stroke-width="3"/>
+    <text x="480" y="433" text-anchor="middle" class="box">Leerdoelen</text>
+    <rect x="345" y="485" width="270" height="80" rx="12" fill="#e3f3fb" stroke="#32abe2" stroke-width="3"/>
+    <text x="480" y="533" text-anchor="middle" class="box">Bronnen</text>
+    <rect x="345" y="585" width="270" height="80" rx="12" fill="#e3f3fb" stroke="#32abe2" stroke-width="3"/>
+    <text x="480" y="633" text-anchor="middle" class="box">Oefeningen context</text>
+  </g>
+
+  <!-- ===== Input: staat vast ===== -->
+  <line x1="290" y1="785" x2="290" y2="1215" stroke="#646d82" stroke-width="5"/>
+  <circle cx="290" cy="785" r="13" fill="#646d82"/>
+  <circle cx="290" cy="1215" r="13" fill="#646d82"/>
+  <text x="60" y="990" class="h grp">Staat vast</text>
+  <text x="60" y="1028" class="note">Eén keer ingericht,</text>
+  <text x="60" y="1054" class="note">geldt voor elke les</text>
+
+  <g>
+    <rect x="345" y="770" width="270" height="80" rx="12" fill="#fdf1e3" stroke="#dd943f" stroke-width="3"/>
+    <text x="480" y="818" text-anchor="middle" class="box">Persona</text>
+
+    <rect x="345" y="870" width="270" height="80" rx="12" fill="#fdf1e3" stroke="#dd943f" stroke-width="3"/>
+    <text x="480" y="918" text-anchor="middle" class="box">Onderwijskundige visie</text>
+
+    <rect x="345" y="970" width="270" height="80" rx="12" fill="#fdf1e3" stroke="#dd943f" stroke-width="3"/>
+    <text x="480" y="1005" text-anchor="middle" class="box">Cursusmateriaal</text>
+    <text x="480" y="1032" text-anchor="middle" class="sub">input/_shared/</text>
+    <rect x="551" y="956" width="70" height="28" rx="14" fill="#bf4b00"/>
+    <text x="586" y="976" text-anchor="middle" class="badge">NIEUW</text>
+
+    <rect x="345" y="1070" width="270" height="80" rx="12" fill="#fdf1e3" stroke="#dd943f" stroke-width="3"/>
+    <text x="480" y="1105" text-anchor="middle" class="box">HZ huisstijl</text>
+    <text x="480" y="1132" text-anchor="middle" class="sub">themes/</text>
+    <rect x="551" y="1056" width="70" height="28" rx="14" fill="#bf4b00"/>
+    <text x="586" y="1076" text-anchor="middle" class="badge">NIEUW</text>
+  </g>
+
+  <!-- Input connectors -> CLAUDE.md -->
+  <g fill="none" stroke-width="4" stroke-linecap="round">
+    <path d="M615 325 H660 Q700 325 700 365 V690 Q700 715 725 715" stroke="#32abe2"/>
+    <path d="M615 425 H660 Q700 425 700 465" stroke="#32abe2"/>
+    <path d="M615 525 H660 Q700 525 700 565" stroke="#32abe2"/>
+    <path d="M615 625 H660 Q700 625 700 665" stroke="#32abe2"/>
+    <path d="M615 810 H660 Q700 810 700 770 V740 Q700 715 725 715" stroke="#dd943f"/>
+    <path d="M615 910 H660 Q700 910 700 870" stroke="#dd943f"/>
+    <path d="M615 1010 H660 Q700 1010 700 970" stroke="#dd943f"/>
+    <path d="M615 1110 H660 Q700 1110 700 1070 V810" stroke="#dd943f"/>
+    <path d="M725 715 H762" stroke="#32abe2" marker-end="url(#a-sky)"/>
+  </g>
+
+  <!-- ===== Processing ===== -->
+  <rect x="770" y="250" width="280" height="930" rx="16" fill="#ffffff" stroke="#01386a" stroke-width="4"/>
+  <rect x="770" y="250" width="280" height="14" rx="7" fill="#005095"/>
+  <text x="910" y="560" text-anchor="middle" class="h" font-size="34" style="fill:#01386a">CLAUDE.md</text>
+  <text text-anchor="middle" font-size="21">
+    <tspan x="910" y="610">Het hart; het werkpaard.</tspan>
+    <tspan x="910" y="640">Exacte instructie wat</tspan>
+    <tspan x="910" y="670">Claude moet doen, waar</tspan>
+    <tspan x="910" y="700">het rekening mee houdt,</tspan>
+    <tspan x="910" y="730">wanneer het vragen stelt</tspan>
+    <tspan x="910" y="760">en wat de output is.</tspan>
+  </text>
+  <text x="910" y="830" text-anchor="middle" class="h" font-size="20" style="fill:#bf4b00">Stap 0 → 9</text>
+  <rect x="805" y="935" width="210" height="48" rx="24" fill="#f2f6fa" stroke="#005095" stroke-width="2"/>
+  <text x="910" y="966" text-anchor="middle" class="h" font-size="19" style="fill:#005095">/create-lesson</text>
+  <rect x="805" y="1000" width="210" height="48" rx="24" fill="#f2f6fa" stroke="#005095" stroke-width="2"/>
+  <text x="910" y="1031" text-anchor="middle" class="h" font-size="19" style="fill:#005095">/infographic</text>
+  <rect x="981" y="986" width="70" height="28" rx="14" fill="#bf4b00"/>
+  <text x="1016" y="1006" text-anchor="middle" class="badge">NIEUW</text>
+  <text x="910" y="1080" text-anchor="middle" class="sub">skills</text>
+
+  <!-- Processing -> Lesplan -->
+  <path d="M1050 715 H1112" fill="none" stroke="#646d82" stroke-width="4" stroke-linecap="round" marker-end="url(#a-grey)"/>
+
+  <!-- Lesplan -->
+  <rect x="1120" y="670" width="230" height="90" rx="14" fill="#fbeee6" stroke="#bf4b00" stroke-width="4"/>
+  <text x="1235" y="710" text-anchor="middle" class="box" font-weight="600">Lesplan</text>
+  <text x="1235" y="738" text-anchor="middle" class="sub">lesson.md</text>
+  <text x="1235" y="800" text-anchor="middle" class="sub">✓ goedkeuring docent</text>
+
+  <!-- Lesplan -> outputs -->
+  <g fill="none" stroke="#bf4b00" stroke-width="4" stroke-linecap="round">
+    <path d="M1350 715 H1385 Q1415 715 1415 685 V295 Q1415 265 1445 265 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1415 445 Q1415 415 1445 415 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1415 595 Q1415 565 1445 565 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1385 715 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1385 715 Q1415 715 1415 745 V1135 Q1415 1165 1445 1165 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1415 835 Q1415 865 1445 865 H1472" marker-end="url(#a-orange)"/>
+    <path d="M1415 985 Q1415 1015 1445 1015 H1472" marker-end="url(#a-orange)"/>
+  </g>
+
+  <!-- ===== Output ===== -->
+  <g>
+    <rect x="1480" y="223" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="259" text-anchor="middle" class="box">Oefeningen in de les</text>
+    <text x="1645" y="285" text-anchor="middle" class="sub">exercises.md</text>
+
+    <rect x="1480" y="373" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="409" text-anchor="middle" class="box">Oefeningen na de les</text>
+    <text x="1645" y="435" text-anchor="middle" class="sub">exercises.md</text>
+
+    <rect x="1480" y="523" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="559" text-anchor="middle" class="box">Antwoorden</text>
+    <text x="1645" y="585" text-anchor="middle" class="sub">answers.md · voor docent</text>
+
+    <rect x="1480" y="673" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="709" text-anchor="middle" class="box">Quiz vragen</text>
+    <text x="1645" y="735" text-anchor="middle" class="sub">quiz.md</text>
+
+    <rect x="1480" y="823" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="859" text-anchor="middle" class="box">Aantekeningen template</text>
+    <text x="1645" y="885" text-anchor="middle" class="sub">notes-template.md</text>
+
+    <rect x="1480" y="973" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="1009" text-anchor="middle" class="box">Presentatie slides</text>
+    <text x="1645" y="1035" text-anchor="middle" class="sub">HZ-stijl · PDF + interactief HTML</text>
+    <rect x="1746" y="959" width="70" height="28" rx="14" fill="#bf4b00"/>
+    <text x="1781" y="979" text-anchor="middle" class="badge">NIEUW</text>
+
+    <rect x="1480" y="1123" width="330" height="84" rx="12" fill="#e6f4f0" stroke="#1e9b7d" stroke-width="3"/>
+    <text x="1645" y="1159" text-anchor="middle" class="box">Infographic</text>
+    <text x="1645" y="1185" text-anchor="middle" class="sub">samenvatting · PDF + PNG</text>
+    <rect x="1746" y="1109" width="70" height="28" rx="14" fill="#bf4b00"/>
+    <text x="1781" y="1129" text-anchor="middle" class="badge">NIEUW</text>
+  </g>
+
+  <!-- HZ colour strip -->
+  <g clip-path="url(#frame)">
+    <rect x="30" y="1340" width="1067" height="20" fill="#005095"/>
+    <rect x="1097" y="1340" width="388" height="20" fill="#32abe2"/>
+    <rect x="1485" y="1340" width="252" height="20" fill="#1e9b7d"/>
+    <rect x="1737" y="1340" width="233" height="20" fill="#bf4b00"/>
+  </g>
+</svg>

@@ -1,0 +1,348 @@
+/*
+ * @theme hz
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ *
+ * HZ University of Applied Sciences — MARP slide theme.
+ * Palette taken from hz.nl. Silka / DIN are HZ's licensed fonts; they are used
+ * when installed locally, otherwise Plus Jakarta Sans / Barlow are loaded.
+ *
+ * Layouts (set per slide with <!-- _class: name -->):
+ *   title, agenda, question, concept, activity, poll, reflection, closing
+ * Components (needs --html, enabled in .marprc.yml):
+ *   .columns, .myth / .fact, .callout, .chips > .chip, <details class="reveal">
+ * See themes/README.md for usage.
+ */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --hz-blue: #005095;
+  --hz-navy: #01386a;
+  --hz-ink: #040e28;
+  --hz-orange: #bf4b00;
+  --hz-amber: #dd943f;
+  --hz-sky: #32abe2;
+  --hz-green: #1e9b7d;
+  --hz-mist: #f2f6fa;
+  --hz-cream: #fef8f3;
+  --hz-line: #e7eaf4;
+  --hz-muted: #646d82;
+
+  --font-heading: 'Silka', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-body: 'Din', 'DIN', 'Barlow', 'Segoe UI', sans-serif;
+}
+
+/* ---------- Base slide ---------- */
+
+section {
+  background: #fff;
+  color: var(--hz-ink);
+  font-family: var(--font-body);
+  font-size: 30px;
+  line-height: 1.45;
+  padding: 64px 80px 72px;
+  position: relative;
+  /* Content slides start at the top; title/question/closing re-centre below */
+  display: flex;
+  flex-direction: column;
+  place-content: normal;
+  justify-content: flex-start;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--hz-blue);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  padding: 0;
+  border: none;
+}
+
+h1 { font-size: 54px; }
+h2 { font-size: 42px; }
+h3 { font-size: 32px; color: var(--hz-navy); }
+
+/* Orange accent bar above the slide title */
+h1::before,
+h2::before {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 7px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background: var(--hz-orange);
+}
+
+strong { color: var(--hz-navy); font-weight: 700; }
+em { color: var(--hz-orange); font-style: normal; font-weight: 600; }
+
+a { color: var(--hz-blue); text-decoration: underline; text-underline-offset: 4px; }
+
+ul, ol { padding-left: 1.2em; }
+li { margin: 0.25em 0; }
+ul > li::marker { color: var(--hz-orange); }
+ol > li::marker { color: var(--hz-blue); font-weight: 700; }
+
+blockquote {
+  border-left: 8px solid var(--hz-sky);
+  background: var(--hz-mist);
+  color: var(--hz-ink);
+  padding: 20px 28px;
+  margin: 0.6em 0;
+  border-radius: 0 12px 12px 0;
+}
+
+code {
+  background: var(--hz-mist);
+  color: var(--hz-navy);
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background: var(--hz-ink);
+  border-radius: 12px;
+  font-size: 0.75em;
+}
+pre code { background: transparent; color: #e7eaf4; }
+
+table { font-size: 0.85em; border-collapse: collapse; }
+th { background: var(--hz-blue); color: #fff; font-family: var(--font-heading); }
+th, td { border: 1px solid var(--hz-line); padding: 10px 16px; }
+tr:nth-child(even) td { background: var(--hz-mist); }
+
+img { background: transparent; }
+
+/* Footer + page number */
+footer {
+  left: 80px;
+  bottom: 24px;
+  color: var(--hz-muted);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+section::after {
+  right: 48px;
+  bottom: 20px;
+  color: var(--hz-muted);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Small HZ colour strip along the bottom edge */
+section::before {
+  content: '';
+  display: block; /* Marp sets display:table, which collapses the width */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: linear-gradient(90deg,
+    var(--hz-blue) 0 55%, var(--hz-sky) 55% 75%,
+    var(--hz-green) 75% 88%, var(--hz-orange) 88% 100%);
+}
+
+/* ---------- Layouts ---------- */
+
+/* Title slide: navy, large heading */
+section.title {
+  background: linear-gradient(135deg, var(--hz-navy) 0%, var(--hz-blue) 100%);
+  color: #fff;
+  justify-content: center;
+  padding-left: 110px;
+}
+section.title h1 { color: #fff; font-size: 68px; margin-bottom: 0.3em; }
+section.title h1::before { width: 110px; height: 10px; }
+section.title p { color: #cfe8f6; font-size: 34px; margin: 0; }
+section.title footer,
+section.title::after { color: #cfe8f6; }
+
+/* Agenda: numbered steps as cards */
+section.agenda ol {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+section.agenda ol > li {
+  counter-increment: step;
+  background: var(--hz-mist);
+  border-top: 6px solid var(--hz-blue);
+  border-radius: 10px;
+  padding: 18px 20px 20px;
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.3;
+}
+section.agenda ol > li::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 40px;
+  color: var(--hz-orange);
+  margin-bottom: 6px;
+}
+
+/* Question: one big question, nothing else */
+section.question {
+  background: var(--hz-blue);
+  color: #fff;
+  justify-content: center;
+  text-align: left;
+  padding: 80px 120px;
+}
+section.question h1,
+section.question h2 { color: #fff; font-size: 56px; }
+section.question h1::before,
+section.question h2::before { background: var(--hz-amber); }
+section.question p { color: #d9eefa; font-size: 32px; }
+section.question strong { color: #fff; }
+section.question em { color: var(--hz-amber); }
+section.question footer,
+section.question::after { color: #cfe8f6; }
+
+/* Concept: theory as a thinking tool, light background */
+section.concept { background: var(--hz-mist); }
+
+/* Activity: students do something — warm background, orange accents */
+section.activity { background: var(--hz-cream); }
+section.activity h1::before,
+section.activity h2::before { background: var(--hz-orange); width: 120px; }
+section.activity h1,
+section.activity h2 { color: var(--hz-orange); }
+
+/* Poll: question left, QR code right (use .columns or an image with ![bg right]) */
+section.poll { background: var(--hz-mist); }
+section.poll img[alt~='qr'] {
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(4, 14, 40, 0.12);
+}
+
+/* Reflection: calm closing, green accent */
+section.reflection { background: #fff; }
+section.reflection h1::before,
+section.reflection h2::before { background: var(--hz-green); }
+section.reflection ol > li::marker,
+section.reflection ul > li::marker { color: var(--hz-green); }
+
+/* Closing: navy, centred */
+section.closing {
+  background: var(--hz-navy);
+  color: #fff;
+  justify-content: center;
+  text-align: center;
+}
+section.closing h1,
+section.closing h2 { color: #fff; }
+section.closing h1::before,
+section.closing h2::before { margin-left: auto; margin-right: auto; }
+section.closing p { color: #cfe8f6; }
+section.closing footer,
+section.closing::after { color: #cfe8f6; }
+
+/* ---------- Components (HTML) ---------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.columns.wide-left { grid-template-columns: 3fr 2fr; }
+.columns.wide-right { grid-template-columns: 2fr 3fr; }
+.columns > div > :first-child { margin-top: 0; }
+
+/* Misconception vs. better understanding */
+.myth,
+.fact {
+  border-radius: 14px;
+  padding: 22px 28px;
+  font-size: 0.9em;
+}
+.myth { background: #fbeee6; border-left: 8px solid var(--hz-orange); }
+.fact { background: #e6f4f0; border-left: 8px solid var(--hz-green); }
+.myth::before,
+.fact::before {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.myth::before { content: 'Common idea'; color: var(--hz-orange); }
+.fact::before { content: 'Closer look'; color: var(--hz-green); }
+.myth > :last-child,
+.fact > :last-child { margin-bottom: 0; }
+
+.callout {
+  background: #fff;
+  border: 2px solid var(--hz-line);
+  border-left: 8px solid var(--hz-sky);
+  border-radius: 12px;
+  padding: 18px 26px;
+  margin: 0.5em 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+
+/* Chips for activity meta: time, grouping, output */
+.chips { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 0.8em; }
+.chip {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid var(--hz-orange);
+  color: var(--hz-orange);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 999px;
+  padding: 4px 16px;
+}
+
+/* Click-to-reveal (HTML export). In the PDF only the summary line is shown. */
+details.reveal {
+  margin: 0.6em 0;
+  font-size: 0.9em;
+}
+details.reveal > summary {
+  display: inline-block;
+  cursor: pointer;
+  list-style: none;
+  background: var(--hz-blue);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  border-radius: 999px;
+  padding: 8px 22px;
+}
+details.reveal > summary::-webkit-details-marker { display: none; }
+details.reveal > summary::before { content: '▸ '; }
+details.reveal[open] > summary { background: var(--hz-green); }
+details.reveal[open] > summary::before { content: '▾ '; }
+details.reveal > :not(summary) {
+  background: #fff;
+  border-left: 6px solid var(--hz-green);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 22px;
+  margin-top: 12px;
+}
+
+.small { font-size: 0.75em; }
+.muted { color: var(--hz-muted); }
+.center { text-align: center; }

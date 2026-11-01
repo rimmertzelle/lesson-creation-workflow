@@ -8,21 +8,37 @@ Always follow these steps in order. Create a dedicated folder for each new lesso
 ## Workflow Overview
 
 ```text
+Step 0 → Check the input folder
 Step 1 → Ask for topic
 Step 2 → Ask for sources
 Step 3 → Create lesson plan (markdown, persona-aware)
 Step 4 → Ask for exercise context
 Step 5 → Create exercises + answer key
 Step 6 → Create quiz questions (persona-aware)
-Step 7 → Create MARP slides
+Step 7 → Create MARP slides (HZ theme, PDF + interactive HTML)
 Step 8 → Create student notes template (Guided Learning Log)
+Step 9 → Create infographic (lesson summary)
 ```
+
+---
+
+## Step 0 — Check the Input Folder
+
+Before asking anything, look in `input/` (see `input/README.md`):
+
+- If a topic slug or name was given, look for a matching `input/<topic-slug>/` folder. If none was given but exactly one lesson folder exists in `input/` without a matching `lessons/` folder, propose that one.
+- Read `input/<topic-slug>/brief.md` if it exists. Every filled-in field answers the matching question in Steps 1, 2 and 4.
+- List the files in `input/_shared/` and `input/<topic-slug>/sources/` (ignore `.gitkeep`).
+
+Use the same `<topic-slug>` for the `lessons/` folder.
 
 ---
 
 ## Step 1 — Ask for the Topic
 
-Ask the user:
+If `brief.md` already answers this, summarise topic, audience and duration in two or three lines and ask the user to confirm or correct it, instead of asking the question below.
+
+Otherwise ask the user:
 
 > "What is the topic of the lesson? Please describe it briefly, including the target audience (e.g., age group, prior knowledge level) and the intended duration of the lesson."
 
@@ -32,7 +48,9 @@ Wait for the answer before proceeding.
 
 ## Step 2 — Ask for Sources
 
-Ask the user:
+Read all files found in Step 0 (`input/_shared/` and `input/<topic-slug>/sources/`) and any URLs listed in `brief.md`. Then list what you found in one line per source and ask: "Anything else I should use?" — instead of the full question below.
+
+If there are no input files, ask the user:
 
 > "What sources should I use for this lesson? You can provide:
 >
@@ -105,7 +123,9 @@ Wait for approval before continuing.
 
 ## Step 4 — Ask for Exercise Context
 
-Ask the user:
+If `brief.md` already answers this, summarise the exercise context in one or two lines and ask the user to confirm or correct it, instead of asking the question below.
+
+Otherwise ask the user:
 
 > "What context should I keep in mind when creating the exercises?
 > For example:
@@ -207,35 +227,69 @@ Each question must include:
 
 Create the file: `lessons/<topic-slug>/slides.md`
 
-Use MARP format. The slide deck should follow the lesson structure from Step 3.
+Use MARP format with the HZ theme. The slide deck should follow the lesson structure from Step 3.
+Before writing, read `themes/README.md` (layouts, components, interaction) and use `themes/examples/showcase.md` as a reference.
 
 ```markdown
 ---
 marp: true
-theme: default
+theme: hz
 paginate: true
+footer: 'HZ University of Applied Sciences · <Course> · <Week>'
 ---
 
-# <Topic>
-<Subtitle or framing question>
+<!-- _class: title -->
+<!-- _paginate: false -->
+
+# <Topic or framing question>
+
+<Course · week>
 
 ---
 
-<!-- One slide per major lesson section -->
+<!-- _class: agenda -->
+
+## Today
+
+1. ...
 ```
+
+Map lesson sections to slide layouts (`<!-- _class: ... -->`):
+
+| Lesson section | Layout |
+| --- | --- |
+| Title | `title` |
+| Lesson structure (UDL: visible agenda) | `agenda` — one numbered card per lesson section |
+| 1. Opening question | `question` |
+| 2. Prior knowledge check | `poll` (with QR code if a poll link is known) and/or `.myth` / `.fact` columns |
+| 3. Core concepts | `concept`, with `.callout` for the "why does this work?" angle |
+| 4. Application | `activity`, with `.chips` for time / grouping / output |
+| Concept checks | default layout with `<details class="reveal">` for the answer |
+| 5. Reflection | `reflection` |
+| Close / next steps | `closing` |
 
 Guidelines for slides:
 
 - Keep text minimal — one key point or question per slide
-- Use the opening question from the lesson plan as the first content slide
+- Use the opening question from the lesson plan as the first content slide after the agenda
 - Include a "Reflection" slide at the end with the metacognitive closing questions
-- Do not duplicate exercise content on the slides
-
-After creating the slides, run the MARP CLI to generate a PDF:
+- Do not duplicate exercise content on the slides — refer to the exercise number instead
+- Put persona notes and teacher prompts in speaker notes (`<!-- ... -->`), never on the slide
+- **Interaction:** use `*` bullets (appear one by one in the HTML version) where students should think before seeing the next point, and `<details class="reveal">` for answers and hints. Leave a blank line between HTML tags and the markdown inside them.
+- **Poll QR code:** if `brief.md` has a poll link, generate a QR code (command below) and place it on the `poll` slide as `![qr w:300](poll-qr.png)`
 
 ```bash
-marp lessons/<topic-slug>/slides.md --pdf --output lessons/<topic-slug>/slides.pdf
+npx qrcode -w 600 -o lessons/<topic-slug>/poll-qr.png "<poll-url>"
 ```
+
+After creating the slides, render both versions from the repo root (`.marprc.yml` registers the theme and enables HTML; run `npm install` first if `node_modules/` is missing):
+
+```bash
+npx marp lessons/<topic-slug>/slides.md --pdf -o lessons/<topic-slug>/slides.pdf
+npx marp lessons/<topic-slug>/slides.md -o lessons/<topic-slug>/slides.html
+```
+
+Render a PNG of any slide you are unsure about (`npx marp lessons/<topic-slug>/slides.md --images png -o <scratch-dir>/slide.png`) and look at it; fix overflowing text by shortening it or splitting the slide.
 
 After creating the slides, proceed to Step 8 without confirmation.
 
@@ -322,6 +376,18 @@ Use this template structure:
 
 ```
 
+After creating the notes template, proceed to Step 9 without confirmation.
+
+---
+
+## Step 9 — Create Infographic
+
+Follow `.claude/skills/infographic/SKILL.md` to create a one-page summary of the whole lesson:
+
+- Use the layout from `brief.md` if given, otherwise `one-pager`
+- Output: `lessons/<topic-slug>/infographic.md`, `infographic.pdf` and `infographic.png`
+- Check the PNG visually before finishing
+
 Confirm with the user when all files are ready:
 
 > "All lesson materials are saved in `lessons/<topic-slug>/`:
@@ -332,9 +398,11 @@ Confirm with the user when all files are ready:
 > - `quiz.md` — 4 self-assessment quiz questions (student-facing)
 > - `slides.md` — MARP source
 > - `slides.pdf` — rendered slide deck
+> - `slides.html` — interactive slide deck (press `p` for presenter view)
 > - `notes-template.md` — Guided Learning Log for students
+> - `infographic.pdf` / `.png` — one-page lesson summary
 >
-> Let me know if you'd like to adjust anything."
+> Let me know if you'd like to adjust anything, or run `/infographic` for an extra infographic of a single topic."
 
 ---
 

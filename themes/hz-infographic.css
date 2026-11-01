@@ -1,0 +1,288 @@
+/*
+ * @theme hz-infographic
+ * @size A4 1240px 1754px
+ * @size square 1400px 1400px
+ *
+ * HZ infographic theme — one Marp "slide" = one infographic page.
+ * Same palette and fonts as themes/hz.css; keep the tokens in sync.
+ * Used by the /infographic skill. See themes/README.md.
+ */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --hz-blue: #005095;
+  --hz-navy: #01386a;
+  --hz-ink: #040e28;
+  --hz-orange: #bf4b00;
+  --hz-amber: #dd943f;
+  --hz-sky: #32abe2;
+  --hz-green: #1e9b7d;
+  --hz-mist: #f2f6fa;
+  --hz-cream: #fef8f3;
+  --hz-line: #e7eaf4;
+  --hz-muted: #646d82;
+
+  --font-heading: 'Silka', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-body: 'Din', 'DIN', 'Barlow', 'Segoe UI', sans-serif;
+}
+
+section {
+  background: #fff;
+  color: var(--hz-ink);
+  font-family: var(--font-body);
+  font-size: 28px;
+  line-height: 1.4;
+  padding: 0 0 110px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-content: normal;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+section > * { margin: 0; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  border: none;
+  padding: 0;
+  margin: 0 0 0.35em;
+}
+h2 { font-size: 34px; color: var(--hz-blue); }
+h3 { font-size: 28px; color: var(--hz-navy); }
+p { margin: 0 0 0.5em; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--hz-navy); }
+em { font-style: normal; font-weight: 700; color: var(--hz-orange); }
+ul { padding-left: 1.1em; margin: 0; }
+ul > li::marker { color: var(--hz-orange); }
+
+/* Every block below is a direct child of section, so it gets the side gutter */
+.hero, .row, .band, .flow, .compare, .hub, .footer { margin-left: 80px; margin-right: 80px; }
+
+/* ---------- Header ---------- */
+
+.hero {
+  margin: 0;
+  padding: 80px 80px 64px;
+  background: linear-gradient(135deg, var(--hz-navy) 0%, var(--hz-blue) 100%);
+  color: #fff;
+}
+.hero .kicker {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hz-amber);
+  margin-bottom: 18px;
+}
+.hero h1 {
+  color: #fff;
+  font-size: 66px;
+  margin: 0 0 20px;
+}
+.hero h1::before {
+  content: '';
+  display: block;
+  width: 110px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--hz-orange);
+  margin-bottom: 26px;
+}
+.hero p { color: #d9eefa; font-size: 32px; max-width: 46ch; }
+.hero em { color: var(--hz-amber); }
+
+/* ---------- Generic rows of cards ---------- */
+
+.row { display: grid; gap: 28px; grid-template-columns: repeat(var(--cols, 3), 1fr); }
+.row.cols-2 { --cols: 2; }
+.row.cols-4 { --cols: 4; }
+
+.card {
+  background: var(--hz-mist);
+  border-top: 8px solid var(--hz-blue);
+  border-radius: 14px;
+  padding: 26px 28px 30px;
+}
+.card .num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 1;
+  color: var(--hz-orange);
+  margin-bottom: 12px;
+}
+.card.orange { border-top-color: var(--hz-orange); background: var(--hz-cream); }
+.card.green { border-top-color: var(--hz-green); background: #e6f4f0; }
+.card.sky { border-top-color: var(--hz-sky); }
+
+/* ---------- Misconception band ---------- */
+
+.band { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.myth, .fact { border-radius: 14px; padding: 26px 30px; }
+.myth { background: #fbeee6; border-left: 10px solid var(--hz-orange); }
+.fact { background: #e6f4f0; border-left: 10px solid var(--hz-green); }
+.myth::before, .fact::before {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.myth::before { content: 'Common idea'; color: var(--hz-orange); }
+.fact::before { content: 'Closer look'; color: var(--hz-green); }
+
+/* ---------- Process flow (vertical steps with connector) ---------- */
+
+.flow { display: flex; flex-direction: column; gap: 0; }
+.step {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 28px;
+  align-items: start;
+  position: relative;
+  padding-bottom: 30px;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 40px;
+  top: 84px;
+  bottom: 0;
+  width: 4px;
+  background: var(--hz-line);
+}
+.step .num {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--hz-blue);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step:last-child .num { background: var(--hz-orange); }
+.step .body { padding-top: 10px; }
+
+/* ---------- Compare (X vs Y) ---------- */
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 16px; overflow: hidden; border: 2px solid var(--hz-line); }
+.compare > div { padding: 30px 34px; }
+.compare > div:first-child { background: var(--hz-mist); }
+.compare > div:last-child { background: var(--hz-cream); }
+.compare > div:first-child h2 { color: var(--hz-blue); }
+.compare > div:last-child h2 { color: var(--hz-orange); }
+.compare ul > li { margin-bottom: 12px; }
+
+/* ---------- Hub (concept map: centre + satellites) ---------- */
+
+.hub {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 24px;
+  align-items: stretch;
+}
+.hub .core {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--hz-blue);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 0 0 14px var(--hz-mist);
+}
+.hub .core h2 { color: #fff; font-size: 36px; margin: 0; }
+.hub .node {
+  background: #fff;
+  border: 3px solid var(--hz-line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  font-size: 24px;
+}
+/* Nodes left and right of the core (children 4 and 6) stay compact */
+.hub .node:nth-child(4),
+.hub .node:nth-child(6) { align-self: center; }
+.hub .node h3 { font-size: 26px; margin-bottom: 6px; }
+.hub .node .rel {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hz-orange);
+  margin-bottom: 6px;
+}
+
+/* ---------- Takeaway + footer ---------- */
+
+.takeaway {
+  margin-top: auto; /* sits just above the footer when the page has room */
+  background: var(--hz-navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 30px 36px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.takeaway h2 { color: var(--hz-amber); font-size: 26px; letter-spacing: 0.08em; text-transform: uppercase; }
+.takeaway p, .takeaway li { color: #fff; font-size: 30px; }
+.takeaway strong { color: #fff; }
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--hz-muted);
+  font-size: 20px;
+}
+
+/* Colour strip along the bottom, as on the slides */
+section::before {
+  content: '';
+  display: block; /* Marp sets display:table, which collapses the width */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: linear-gradient(90deg,
+    var(--hz-blue) 0 55%, var(--hz-sky) 55% 75%,
+    var(--hz-green) 75% 88%, var(--hz-orange) 88% 100%);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hz-muted);
+  margin: 0 80px -24px;
+}

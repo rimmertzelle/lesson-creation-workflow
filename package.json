@@ -1,0 +1,12 @@
+{
+  "name": "lesson-creation-workflow",
+  "private": true,
+  "description": "Tooling for rendering lesson slides and infographics",
+  "scripts": {
+    "showcase": "marp themes/examples/showcase.md --pdf -o themes/examples/showcase.pdf && marp themes/examples/showcase.md -o themes/examples/showcase.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1",
+    "qrcode": "1.5.4"
+  }
+}

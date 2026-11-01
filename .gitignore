@@ -40,3 +40,13 @@ Temporary Items
 */database.sqlite
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
+node_modules
+
+## Lesson workflow
+node_modules/
+# Source material may be copyrighted — keep it local
+input/*/sources/*
+!input/*/sources/.gitkeep
+# Rendered showcase output
+themes/examples/showcase.pdf
+themes/examples/showcase.html

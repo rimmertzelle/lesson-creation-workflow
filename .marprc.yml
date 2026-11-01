@@ -1,0 +1,4 @@
+# MARP CLI configuration — picked up automatically when running marp from the repo root.
+themeSet: ./themes
+html: true
+allowLocalFiles: true
